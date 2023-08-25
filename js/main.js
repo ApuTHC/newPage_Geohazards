@@ -3,7 +3,10 @@ $(document).ready(function () {
   CargarAboutUs();
   CargarLineas();
   CargarProyectos();
-  CargarPublicaciones()
+  CargarPublicaciones();
+  CargarCongresos();
+  CargarRecursos();
+  CargarContacto();
   
   $('#modal_carousel').on('show.bs.modal', function (e) {
     // Se obtiene el botón que abrió el modal
@@ -236,5 +239,89 @@ function CargarPublicaciones() {
     $("#menu-publicaciones").append(content);
     $("#content-publicaciones").append(content1);
 }
+
+function CargarCongresos() {
+    const datosCongre = datos["congresos"];
+    var content = "";
+    var content1 = ""; 
+
+    for (let index = 0; index < datosCongre["anos"].length; index++) {
+        content += '<li class="nav-item"><a class="trans nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabCongre-'+index+'">'+datosCongre["anos"][index]+'</a>'+
+        // '<a class="trans d-none nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabCongre-'+index+'">'+datosCongre["anos"][index]+'</a>'+
+        '</li>';
+        content1 += '<div class="tab-pane '+(index == 0 ? "active" : "")+' show" id="tabCongre-'+index+'" style="width: 99%;">'+
+                        '<div class="container">'
+                            
+        for (let ind = 0; ind < datosCongre[datosCongre["anos"][index]].length; ind++) {
+            const element = datosCongre[datosCongre["anos"][index]][ind];
+            content1 += '<div class="row publicacion mx-auto d-flex align-content-center">'+
+                            '<div class="bibliografia col-lg-9 col-md-9 col-sm-12 col-12  d-flex flex-column justify-content-center">'+
+                                '<p>'+element["name"]+'</p>'+
+                            '</div>'+
+                            '<div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-column justify-content-center align-content-start">'+
+                                '<ul class="botones d-flex flex-row flex-md-column justify-content-around">';
+                                if (element["link"] != "") {
+                                    content1 += '<li class="pdf"><a class=" btn btn-publi" href="'+element["link"]+'" target="_blank">Abstract</a></li>'
+                                }
+            content1 +=         '</ul>'+
+                            '</div>'+
+                        '</div>'
+        }
+
+        content1 += '</div></div>';
+    }
+
+    $("#menu-congresos").append(content);
+    $("#content-congresos").append(content1);
+}
+
+function CargarRecursos() {
+    const datosRecursos = datos["recursos"];
+    var content1 = ""; 
+    content1 += '<div class="tab-pane active show" id="" style="width: 99%;">'; 
+
+    for (let index = 0; index < datosRecursos.length; index++) {
+        console.log('====================================');
+        console.log(datosRecursos[index]);
+        console.log('====================================');
+        const element = datosRecursos[index];
+        content1 +='<div class="container">'+
+                        '<div class="row publicacion mx-auto d-flex align-content-center">'+
+                            '<div class="bibliografia col-lg-9 col-md-9 col-sm-12 col-12  d-flex flex-column justify-content-center">'+
+                                '<p>'+element["name"]+'</p>'+
+                            '</div>'+
+                            '<div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-column justify-content-center align-content-start">'+
+                                '<ul class="botones d-flex flex-row flex-md-column justify-content-around">'+
+                                   '<li class="pdf"><a class=" btn btn-publi" href="'+element["link"]+'" target="_blank">Acceder</a></li>'+
+                                '</ul>'+
+                            '</div></div>'+
+                    '</div>';
+    }
+    content1 += '</div>'; 
+    $("#content-recursos").append(content1);
+}
+
+function CargarContacto() {
+    const about = datos["contacto"];
+    var content = "";
+    var content1 = "";
+    content += '<br><br><br><h1 class="ae-2 fromLeft">'+about["name"]+'</h1>';
+    content += '<h3 class="ae-3 fromLeft">'+about["name_sub"]+'</h3>';
+    content += '<h3 class="ae-3 fromLeft"> <i class="fa-solid fa-envelope"></i> '+about["mail"]+'</h3>';
+    // content += '<p class="ae-3 fromLeft">'+about["callto"]+'</p>';
+    // content += '<div><button class="button gradient btn-visor ae-3 fromLeft">Suscribete</button>';
+    content += '<p class="ae-3 fromLeft">¡Sígenos! <a href="https://www.facebook.com/GeohazardsUnal/">          <i class="fa-brands fa-facebook"></i></a>         <a href="https://www.instagram.com/geohazards_unalmed/">         <i class="fa-brands fa-instagram"></i></a></p></div>';
+    
+    
+    content1 += '<img class="ae-3 fromLeft" src="'+about["img"]+'" style="height: 200px;">';
+    content1 += '<h3 class="ae-3 fromLeft">'+about["depa"]+'</h3>';
+    content1 += '<h3 class="ae-3 fromLeft"><i class="fa-solid fa-location-dot"></i> '+about["dir"]+'</h3>';
+    content1 += '<h3 class="ae-3 fromLeft"><i class="fa-solid fa-phone"></i> '+about["tel"]+'</p>';
+  //   content1 += '<br><br>';
+    content1 += '</div></div>';
+  
+    $("#contacto_content").append(content);
+    $("#contacto_img").append(content1);
+  }
 
 

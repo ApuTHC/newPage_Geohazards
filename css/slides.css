@@ -2650,7 +2650,7 @@ html.mobile .showForMobileInline {
   padding: 0;
   font-size: 0;
   margin-bottom: -20px;
-  width: 100px;
+   width: 100px;
 }
 .sidebar .close {
   position: absolute;

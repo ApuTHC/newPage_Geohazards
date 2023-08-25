@@ -494,137 +494,137 @@ $(document).ready(function() { "use strict";
   var eventCount = 0,
       eventCountStart;
 
-  $('html,body').on('DOMMouseScroll mousewheel scroll touchmove', function(event){
-    var $currentSection = $('.slide.selected .content'),
-        scrollsize = Math.ceil(Math.abs(event.deltaY) * event.deltaFactor),
-        browserScrollRate = (window.isFirefox) ? 2 : 1,
-        OSScrollRate = (window.isWindows) ? browserScrollRate * 2 : browserScrollRate,
-        wheelDelta = (event.originalEvent.wheelDelta) ? event.originalEvent.wheelDelta : event.deltaY * event.deltaFactor,
-        energy = wheelDelta * browserScrollRate * OSScrollRate,
-        scrollDirection = (event.deltaY >= 0) ? "up" : "down",
-        curSecScrolltop = $currentSection.scrollTop(),
-        currentSectionHeight = $currentSection.find('.container').outerHeight(),
-        deviceZoom = detectZoom.device(),
-        minScrollToSlide = (window.isFirefox && window.isWindows) ? 200 : window.minScrollToSlide;
+  // $('html,body').on('DOMMouseScroll mousewheel scroll touchmove', function(event){
+  //   var $currentSection = $('.slide.selected .content'),
+  //       scrollsize = Math.ceil(Math.abs(event.deltaY) * event.deltaFactor),
+  //       browserScrollRate = (window.isFirefox) ? 2 : 1,
+  //       OSScrollRate = (window.isWindows) ? browserScrollRate * 2 : browserScrollRate,
+  //       wheelDelta = (event.originalEvent.wheelDelta) ? event.originalEvent.wheelDelta : event.deltaY * event.deltaFactor,
+  //       energy = wheelDelta * browserScrollRate * OSScrollRate,
+  //       scrollDirection = (event.deltaY >= 0) ? "up" : "down",
+  //       curSecScrolltop = $currentSection.scrollTop(),
+  //       currentSectionHeight = $currentSection.find('.container').outerHeight(),
+  //       deviceZoom = detectZoom.device(),
+  //       minScrollToSlide = (window.isFirefox && window.isWindows) ? 200 : window.minScrollToSlide;
 
-    //skip empty events
-    if (!scrollsize) return;
+  //   //skip empty events
+  //   if (!scrollsize) return;
     
-    //scroll mode
-    if (window.isScroll && ((!window.sidebarShown)&&(!window.popupShown)&&(!window.blockScroll))) {
+  //   //scroll mode
+  //   if (window.isScroll && ((!window.sidebarShown)&&(!window.popupShown)&&(!window.blockScroll))) {
     
-      //smooth scroll
-      if (window.smoothScroll && !window.isMobile){
+  //     //smooth scroll
+  //     if (window.smoothScroll && !window.isMobile){
         
-        //lock default scroll
-        event.preventDefault();
+  //       //lock default scroll
+  //       event.preventDefault();
             
-        if (energy > 1500) { energy = 1500; }
-        if (energy < -1000) { energy = -1500; }
+  //       if (energy > 1500) { energy = 1500; }
+  //       if (energy < -1000) { energy = -1500; }
             
-        var scrollObject = $(window),
-            scrollTop = scrollObject.scrollTop(),
-            finalScroll = scrollTop - energy;
+  //       var scrollObject = $(window),
+  //           scrollTop = scrollObject.scrollTop(),
+  //           finalScroll = scrollTop - energy;
               
-        TweenLite.to(scrollObject, window.scrollSpeed, {
-          scrollTo : { y: finalScroll, autoKill:false },
-          ease: Power4.easeOut,
-          overwrite: "all"            
-        });
+  //       TweenLite.to(scrollObject, window.scrollSpeed, {
+  //         scrollTo : { y: finalScroll, autoKill:false },
+  //         ease: Power4.easeOut,
+  //         overwrite: "all"            
+  //       });
             
-      } else {
-        if (!window.isWindows){
-          $currentSection.scrollTop(curSecScrolltop - energy);
-        }
-      }
-    }
+  //     } else {
+  //       if (!window.isWindows){
+  //         $currentSection.scrollTop(curSecScrolltop - energy);
+  //       }
+  //     }
+  //   }
 
-    //slide mode
-    if ( !window.isScroll && !(window.isMobile && window.isSimplifiedMobile)){
+  //   //slide mode
+  //   if ( !window.isScroll && !(window.isMobile && window.isSimplifiedMobile)){
       
-      // scroll oversized content
-      if ((currentSectionHeight > window.windowHeight)){
+  //     // scroll oversized content
+  //     if ((currentSectionHeight > window.windowHeight)){
         
-        if ((( scrollDirection === "up" ) && ( $currentSection.scrollTop() === 0 )) || (( scrollDirection === "down" ) && ( $currentSection.scrollTop() + window.windowHeight >= Math.floor(currentSectionHeight / deviceZoom) ))){
-          window.allowSlide = 1;
-        } else {
-          window.allowSlide = 0;
-        }
+  //       if ((( scrollDirection === "up" ) && ( $currentSection.scrollTop() === 0 )) || (( scrollDirection === "down" ) && ( $currentSection.scrollTop() + window.windowHeight >= Math.floor(currentSectionHeight / deviceZoom) ))){
+  //         window.allowSlide = 1;
+  //       } else {
+  //         window.allowSlide = 0;
+  //       }
 
-        //hide panels on scroll
-        if (window.panelsToHide) {
-          if (scrollDirection === "down" && $currentSection.scrollTop() > 0) {
-            $body.addClass('hidePanel-top');
-          } else if (scrollDirection === "up"){
-            $body.removeClass('hidePanel-top');
-          }
+  //       //hide panels on scroll
+  //       if (window.panelsToHide) {
+  //         if (scrollDirection === "down" && $currentSection.scrollTop() > 0) {
+  //           $body.addClass('hidePanel-top');
+  //         } else if (scrollDirection === "up"){
+  //           $body.removeClass('hidePanel-top');
+  //         }
 
-          $body.addClass('hidePanel-bottom');
+  //         $body.addClass('hidePanel-bottom');
 
-          if (scrollDirection === "down" && $currentSection.scrollTop() + window.windowHeight >= Math.floor(currentSectionHeight / deviceZoom)) {
-            $body.removeClass('hidePanel-bottom');
-          } else if (scrollDirection === "up"){
-            $body.addClass('hidePanel-bottom');
-          }
-        }
+  //         if (scrollDirection === "down" && $currentSection.scrollTop() + window.windowHeight >= Math.floor(currentSectionHeight / deviceZoom)) {
+  //           $body.removeClass('hidePanel-bottom');
+  //         } else if (scrollDirection === "up"){
+  //           $body.addClass('hidePanel-bottom');
+  //         }
+  //       }
 
-        if ((!window.sidebarShown)&&(!window.popupShown)&&(!window.blockScroll)) {
+  //       if ((!window.sidebarShown)&&(!window.popupShown)&&(!window.blockScroll)) {
           
-          if (window.smoothScroll){
-            //lock default scroll
-            event.preventDefault();
+  //         if (window.smoothScroll){
+  //           //lock default scroll
+  //           event.preventDefault();
             
-            //smooth scroll
-            if (energy > 1500) { energy = 1500; }
-            if (energy < -1000) { energy = -1500; }
+  //           //smooth scroll
+  //           if (energy > 1500) { energy = 1500; }
+  //           if (energy < -1000) { energy = -1500; }
               
-            TweenLite.to($currentSection, 0.5, {
-              scrollTo : { y: curSecScrolltop - energy, autoKill:false },
-              ease: Power4.easeOut,
-              overwrite: 5              
-            });
+  //           TweenLite.to($currentSection, 0.5, {
+  //             scrollTo : { y: curSecScrolltop - energy, autoKill:false },
+  //             ease: Power4.easeOut,
+  //             overwrite: 5              
+  //           });
             
-          } else {
-            curSecScrolltop = (scrollDirection === "up") ? curSecScrolltop - scrollsize : curSecScrolltop + scrollsize;   
-            $currentSection.scrollTop(curSecScrolltop);
-          }
-        }
-      //end scroll oversized content
-      }
+  //         } else {
+  //           curSecScrolltop = (scrollDirection === "up") ? curSecScrolltop - scrollsize : curSecScrolltop + scrollsize;   
+  //           $currentSection.scrollTop(curSecScrolltop);
+  //         }
+  //       }
+  //     //end scroll oversized content
+  //     }
 
-      if (window.allowSlide && scrollsize) {
-        if (scrollDirection == "down") {
-          window.collectScrolls = window.collectScrolls + scrollsize;
-        } else {
-          window.collectScrolls = window.collectScrolls - scrollsize;
-        }
+  //     if (window.allowSlide && scrollsize) {
+  //       if (scrollDirection == "down") {
+  //         window.collectScrolls = window.collectScrolls + scrollsize;
+  //       } else {
+  //         window.collectScrolls = window.collectScrolls - scrollsize;
+  //       }
 
-        setTimeout(function(){
-          window.collectScrolls = 0;
-        },200);
-      }
+  //       setTimeout(function(){
+  //         window.collectScrolls = 0;
+  //       },200);
+  //     }
       
-      //change slide on medium user scroll
-      if ((Math.abs(window.collectScrolls) >= minScrollToSlide) && (window.allowSlide) && (!window.sidebarShown) && (!window.popupShown) && (!window.disableOnScroll)){
+  //     //change slide on medium user scroll
+  //     if ((Math.abs(window.collectScrolls) >= minScrollToSlide) && (window.allowSlide) && (!window.sidebarShown) && (!window.popupShown) && (!window.disableOnScroll)){
         
-        window.collectScrolls = 0;
+  //       window.collectScrolls = 0;
 
-        //should we even.. 
-        if ((scrollDirection === "down" && window.stage !== window.stages)||(scrollDirection === "up" && window.stage !== 1)){
+  //       //should we even.. 
+  //       if ((scrollDirection === "down" && window.stage !== window.stages)||(scrollDirection === "up" && window.stage !== 1)){
           
-          //ok let's go
-          if (window.inAction !== 1){
-            if (scrollDirection === "down"){
-              window.changeSlide('increase');
-            } else {
-              window.changeSlide('decrease');
-            }
-          }
-        }
-      }
-    }
-    //end on mousewheel event
-  });
+  //         //ok let's go
+  //         if (window.inAction !== 1){
+  //           if (scrollDirection === "down"){
+  //             window.changeSlide('increase');
+  //           } else {
+  //             window.changeSlide('decrease');
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  //   //end on mousewheel event
+  // });
 
   //scroll or simplified mobile
   if ( (window.isMobile && window.isSimplifiedMobile) || window.isScroll ){
