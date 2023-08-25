@@ -112,7 +112,7 @@
 <!-- Panel Top #05 -->
 <nav class="panel top">
   <div class="sections desktop">
-    <div class="left"><a href="https://geohazards.com.co/index.html" title="Geohazards"><img src="assets/img/Logo.png" class="logo"></a></div>
+    <div class="left"><a href="#" title="Geohazards"><img src="assets/img/Logo.png" class="logo"></a></div>
     <div class="center">
       <ul class="menu">
         <li><a id="menu_home" href="#home" class="active_menu">Home</a></li>
@@ -124,7 +124,7 @@
         <li><a id="menu_recursos" href="#recursos">Recursos</a></li>
       </ul>
     </div>
-    <div class="right"><a class="button green gradient" href="#" target="_blank">Geovisor</a></div>
+    <div class="right"><a class="button gradient btn-visor" href="visor-geohazard.html" >Geovisor</a></div>
   </div>
   <div class="sections compact hidden">
     <div class="left"><a href="https://geohazards.com.co/index.html" title="Geohazards"><img src="assets/img/Logo.png" class="logo-s"></a></div>
@@ -136,14 +136,15 @@
 <nav class="sidebar" data-sidebar-id="1">
   <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
   <div class="content">
-    <a href="#" class="logo"><svg width="37" height="30"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-icon"></use></svg></a>
+    <a href="#" title="Geohazards"><img src="assets/img/Logo.png" class="logo-mob"></a>
     <ul class="mainMenu margin-top-3">
-      <li><a href="#">Home</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#case">Case study</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#download">Download</a></li>
+      <li><a id="mob_menu_home" href="#home" class="active_menu">Home</a></li>
+      <li><a id="mob_menu_aboutus" href="#aboutus">Quiénes Somos</a></li>
+      <li><a id="mob_menu_lineas" href="#lineas">Líneas de Investigación</a></li>
+      <li><a id="mob_menu_proyectos" href="#proyectos">Proyectos</a></li>
+      <li><a id="mob_menu_publicaciones" href="#publicaciones">Publicaciones</a></li>
+      <li><a id="mob_menu_congresos" href="#congresos">Congresos</a></li>
+      <li><a id="mob_menu_recursos" href="#recursos">Recursos</a></li>
     </ul>
     <ul class="subMenu small opacity-8">
       <li><a href="#">Submit Product</a></li>
@@ -164,12 +165,12 @@
 <!-- Slide 1 (#34) -->
 <section class="slide fade-6 kenBurns" data-name="home">
   <div class="content">
-    <div class="container">
+    <div class="container" style="padding-bottom: 20px;">
       <div class="wrap">
       
-        <div class="fix-12-12">
-          <div class="ae-1 fromLeft">
-            <ul class="flex fixedSpaces verticalCenter reverse">
+        <div class="fix-12-12" style="overflow: auto;">
+          <div class="ae-3 fromLeft">
+            <ul class="flex fixedSpaces verticalCenter reverse" style="margin-right: 15px;">
               <li class="col-12 middle p-0">
                 <div class="slider-imgs">
                 <div id="carouselImagesGeohazards" class="carousel" data-ride="carousel">
@@ -225,9 +226,9 @@
           
         <div class="fix-12-12">
           <ul class="grid">
-            <li class="col-6-12 right" id="aboutus_content">
+            <li class="col-5-12 right" id="aboutus_content">
             </li>
-            <li class="col-6-12 left ae-5 fromCenter parte_profe" id="aboutus_img">
+            <li class="col-7-12 left ae-5 fromCenter parte_profe" id="aboutus_img">
             </li>
           </ul>
         </div>
@@ -239,141 +240,113 @@
 </section>
 
 <!-- Slide 3 (#27) -->
-<section class="slide fade-6 kenBurns" data-name="features">
+<section class="slide fade-6 kenBurns" data-name="lineas">
   <div class="content">
     <div class="container">
       <div class="wrap">
-        
         <div class="fix-12-12">
           <ul class="flex verticalCenter">
-            <li class="col-5-12 cell-27">
-              <div class="fix-4-12">
-                <ul class="slider clickable ae-1 fromAbove" data-slider-id="27-2">
-                  <li class="selected"><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                </ul>
-                <ul class="controller dots ae-2 fromCenter margin-top-3" data-slider-id="27-2">
-                  <li class="dot selected"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                </ul>
-              </div>
-            </li>
-            <li class="col-7-12 left">
-              <h1 class="ae-2 fromRight">Be creative</h1>
-              <div class="ae-3 fromRight">
-                <p class="opacity-8">When we feel less secure, with less control over our daily lives, we reach out to brands to connect with a time when things seemed&nbsp;better.</p>
-              </div>
-              <div class="relative">
-                <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app"/>
-                <div class="text-26">
-                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
-                  <div class="ae-5 fromRight">
-                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
+            <li class="col-12 cell-27">
+              <div class="fix-12">
+                <div class="ae-3 fromRight">
+                  <div id="main-lineas" class="row">
+                    <div id="barra-lateral" class="col-lg-3 col-sm-3 col-md-3 col-4"> 
+                      <div class="carta">
+                        <div class="cara-posterior d-flex flex-column d-flex flex-column text-center">
+                          <div class="parte-lineas-inv">
+                            <ul id="menu-lineas" class="lineas-investigacion nav d-flex flex-column justify-content-around align-items-center"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="mostrar-contenido" class="col-lg-9 col-md-9 col-sm-9 col-8">
+                      <div class="tab-content" id="content-lineas"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </li>
           </ul>
         </div>
-        
       </div>
     </div>
   </div>
-  <div class="background" style="background-image:url(assets/img/background/img-27.jpg)"></div>
+  <div class="background" style="background-image:url(assets/img/background/lineas.jpg)"></div>
 </section>
 
 <!-- Slide 4 (#26) -->
-<section class="slide fade-6 kenBurns">
+<section class="slide fade-6 kenBurns"  data-name="proyectos">
   <div class="content">
     <div class="container">
       <div class="wrap">
-        
         <div class="fix-12-12">
-          <ul class="flex reverse verticalCenter">
-            <li class="col-7-12 left cell-26">
-              <h1 class="ae-1 fromLeft">How we work</h1>
-              <div class="ae-2 fromLeft">
-                <p class="opacity-8">An electrician isn't an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in&nbsp;society.</p>
-              </div>
-              <div class="relative">
-                <img src="assets/img/icon-1.png" class="ae-3 fromCenter app-26" alt="app"/>
-                <div class="text-26">
-                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
-                  <div class="ae-5 fromRight">
-                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
+          <ul class="flex verticalCenter">
+            <li class="col-12 cell-27">
+              <div class="fix-12">
+                <div class="ae-3 fromLeft">
+                  <div id="main-proyectos" class="row">
+                    <div id="mostrar-contenido" class="col-lg-9 col-md-9 col-sm-9 col-8">
+                      <div class="tab-content" id="content-proyectos"></div>
+                    </div>
+                    <div id="barra-lateral" class="col-lg-3 col-sm-3 col-md-3 col-4"> 
+                      <div class="carta">
+                        <div class="cara-posterior d-flex flex-column d-flex flex-column text-center">
+                          <div class="parte-lineas-inv">
+                            <ul id="menu-proyectos" class="lineas-investigacion nav d-flex flex-column justify-content-around align-items-center"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="col-5-12">
-              <div class="fix-4-12 center">
-                <ul class="slider clickable ae-1 fromAbove" data-slider-id="26-3">
-                  <li class="selected"><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                </ul>
-                <ul class="controller dots ae-3 fromCenter margin-top-3" data-slider-id="26-3">
-                  <li class="dot selected"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                </ul>
-              </div>
-            </li>
           </ul>
         </div>
         
       </div>
     </div>
   </div>
-  <div class="background" style="background-image:url(assets/img/background/img-26.jpg)"></div>
+  <div class="background" style="background-image:url(assets/img/background/proyectos.jpg)"></div>
 </section>
 
 <!-- Slide 5 (#91) -->
-<section class="slide fade-6 kenBurns" data-name="case">
+<section class="slide fade-6 kenBurns" data-name="publicaciones">
   <div class="content">
     <div class="container">
       <div class="wrap">
-      
         <div class="fix-12-12 toCenter">
-          <div class="fix-7-12">
-            <p class="margin-bottom-2 ae-1"><span class="opacity-6">Case study</p>
-            <h1 class="ae-2 huge fromAbove margin-bottom-2">Discomfort is a signal of a good concept</h1>
-            <a href="#" class="button green gradient ae-3">Purchase</a>
-          </div>
-          <ul class="grid fixedSpaces left margin-top-10">
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
-             <h3>Inspiration</h3>
-             <p class="tiny opacity-6">We live in a society where everybody feels guilty.</p>
-            </li>
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-5 fromLeft">
-             <h3>Creativity</h3>
-             <p class="tiny opacity-6">You don’t have to be “a creative” to be creative.</p>
-            </li>
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-6 fromLeft">
-             <h3>Fashion</h3>
-             <p class="tiny opacity-6">There is no such thing as simple. Simple is hard.</p>
-            </li>
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-7 fromLeft">
-             <h3>Photography</h3>
-             <p class="tiny opacity-6">Design makes what was once impossible possible.</p>
+          <ul class="flex verticalCenter">
+            <li class="col-12 cell-27">
+              <div class="fix-12">
+                <div class="ae-3">
+                  <div id="main-publicaciones" class="row">
+                    <div id="barra-lateral" class="col-lg-3 col-sm-3 col-md-3 col-4"> 
+                      <div class="carta">
+                        <div class="cara-posterior d-flex flex-column d-flex flex-column text-center">
+                          <div class="parte-lineas-inv">
+                            <ul id="menu-publicaciones" class="lineas-investigacion nav d-flex flex-column justify-content-around align-items-center"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="mostrar-contenido" class="col-lg-9 col-md-9 col-sm-9 col-8">
+                      <div class="tab-content w-100" id="content-publicaciones"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
-        </div>
-                
+        </div>     
       </div>
     </div>
   </div>
-  <div class="background" style="background-image:url(assets/img/background/img-91.jpg)"></div>
+  <div class="background" style="background-image:url(assets/img/background/publicaciones.jpg)"></div>
 </section>
 
 <!-- Slide 6 (#83) -->
-<section class="slide fade-6 kenBurns" data-name="pricing">
+<section class="slide fade-6 kenBurns" data-name="congresos">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -441,7 +414,7 @@
 </section>
 
 <!-- Slide 7 (#95) -->
-<section class="slide fade-6 kenBurns" data-name="download">
+<section class="slide fade-6 kenBurns" data-name="recursos">
   <div class="content">
     <div class="container">
       <div class="wrap">

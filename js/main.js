@@ -1,6 +1,9 @@
 $(document).ready(function () {
   CargarCarruselImagenes();
   CargarAboutUs();
+  CargarLineas();
+  CargarProyectos();
+  CargarPublicaciones()
   
   $('#modal_carousel').on('show.bs.modal', function (e) {
     // Se obtiene el botón que abrió el modal
@@ -57,9 +60,6 @@ $(document).ready(function () {
   });
 
 
-
-
-
 });
 
 
@@ -107,21 +107,134 @@ function CargarAboutUs() {
   content += '<p class="ae-3 fromLeft trans">'+about["text"]+'</p>';
   content += '<p class="ae-3 fromLeft trans d-none">'+about["text_eng"]+'</p>';
 
-  content1 += '<div class="d-inline-block mr-4 text-center"><img src="'+about["img_ed"]+'" class="foto_profe"/>';
-  content1 += '<p class="title_profe"><b>Edier V. Aristizábal G.</b> <br> Director</p></div>';
-  content1 += '<div class="d-inline-block ml-4 redes_profe">';
+  content1 += '<div class="row w-100"><div class="col-12 col-md-3 col-lg-4 d-inline-block text-center"><img src="'+about["img_ed"]+'" class="foto_profe"/>';
+  content1 += '<p class="title_profe m-0"><b>Edier V. Aristizábal G.</b> <br> Director</p></div>';
+  content1 += '<div class="col-12 col-md-9 col-lg-8 d-inline-block redes_profe">';
   content1 += '<p class="datos_profe m-0">'+about["datos_profe"]+'</p>';
-  content1 += '<a href="mailto:'+about["mail"]+'"><i class="fa-solid fa-envelope"></i></a>';
-  content1 += '<a target="_blank" href="'+about["web"]+'"><i class="fa-solid fa-globe"></i></a>';
-  content1 += '<a target="_blank" href="'+about["cvlac"]+'">CvLAC</i></a>';
-  content1 += '<a target="_blank" href="'+about["linkedin"]+'"><i class="fa-brands fa-linkedin"></i></a>';
-  content1 += '<a target="_blank" href="'+about["scholar"]+'"><i class="fa-solid fa-graduation-cap"></i></a>';
-  content1 += '<a target="_blank" href="'+about["research"]+'"><i class="fa-brands fa-researchgate"></i></a>';
-  content1 += '<a target="_blank" href="'+about["github"]+'"><i class="fa-brands fa-github"></i></a>';
-  content1 += '</div>';
+  content1 += '<a class="icon-redes" href="mailto:'+about["mail"]+'"><i class="fa-solid fa-envelope"></i></a>';
+  content1 += '<a class="icon-redes" target="_blank" href="'+about["web"]+'"><i class="fa-solid fa-globe"></i></a>';
+  content1 += '<a class="icon-redes" target="_blank" href="'+about["cvlac"]+'">CvLAC</i></a>';
+  content1 += '<a class="icon-redes" target="_blank" href="'+about["linkedin"]+'"><i class="fa-brands fa-linkedin"></i></a>';
+  content1 += '<a class="icon-redes" target="_blank" href="'+about["scholar"]+'"><i class="fa-solid fa-graduation-cap"></i></a>';
+  content1 += '<a class="icon-redes" target="_blank" href="'+about["research"]+'"><i class="fa-brands fa-researchgate"></i></a>';
+  content1 += '<a class="icon-redes" target="_blank" href="'+about["github"]+'"><i class="fa-brands fa-github"></i></a>';
+//   content1 += '<br><br>';
+  content1 += '</div></div>';
 
   $("#aboutus_content").append(content);
   $("#aboutus_img").append(content1);
+}
+
+function CargarLineas() {
+    const datosLineas = datos["lineas"];
+    var content = "";
+    var content1 = "";
+
+    for (let index = 0; index < datosLineas.length; index++) {
+        content += '<li class="nav-item"><a class="trans nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabLineas-'+index+'">'+datosLineas[index]["name"]+'</a><a class="trans d-none nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabLineas-'+index+'">'+datosLineas[index]["name_eng"]+'</a></li>';
+        content1+= '<div class="tab-pane '+(index == 0 ? "active" : "")+' show" id="tabLineas-'+index+'">'+
+                        '<div class="container">'+
+                            '<div class="row row-lineas control-desbor mx-auto">'+
+                                '<div class="col-lg-4 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">'+
+                                    '<div class="ilustracion">'+
+                                        '<img src="'+datosLineas[index]["img"]+'" width="254px" height="247px" alt="">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="col-lg-8 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">'+
+                                    '<div class="descripcion-linea">'+
+                                        '<h6 class="trans titulo-campo-der">'+datosLineas[index]["name"]+'</h6><h6 class="trans d-none titulo-campo-der">'+datosLineas[index]["name_eng"]+'</h6>'+
+                                        '<p class="trans text-justify">'+datosLineas[index]["text"]+'</p><p class="trans d-none text-justify">'+datosLineas[index]["text_eng"]+'</p>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>';
+    }
+
+
+    $("#menu-lineas").append(content);
+    $("#content-lineas").append(content1);
+
+}
+
+function CargarProyectos() {
+    const datosProy = datos["proyectos"];
+    var content = "";
+    var content1 = "";
+
+    for (let index = 0; index < datosProy.length; index++) {
+        content += '<li class="nav-item"><a class="trans nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabProy-'+index+'">'+datosProy[index]["name"]+'</a>'+
+        // '<a class="trans d-none nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabProy-'+index+'">'+datosProy[index]["name_eng"]+'</a>'+
+        '</li>';
+        content1+= '<div class="tab-pane '+(index == 0 ? "active" : "")+' show" id="tabProy-'+index+'">'+
+                        '<div class="container">'+
+                            '<div class="row row-lineas control-desbor mx-auto">'+
+                                '<div class="col-lg-4 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">'+
+                                    '<div class="ilustracion">'+
+                                        '<img src="'+datosProy[index]["img"]+'" width="254px" height="247px" alt="">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="col-lg-8 col-md-12 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center">'+
+                                    '<div class="descripcion-linea">'+
+                                        '<h6 class="trans titulo-campo-der">'+datosProy[index]["name"]+'</h6>'+
+                                        // '<h6 class="trans d-none titulo-campo-der">'+datosProy[index]["name_eng"]+'</h6>'+
+                                        '<p class="trans text-justify">'+datosProy[index]["text"]+'</p>'+
+                                        // '<p class="trans d-none text-justify">'+datosProy[index]["text_eng"]+'</p>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>';
+    }
+
+
+    $("#menu-proyectos").append(content);
+    $("#content-proyectos").append(content1);
+
+}
+
+function CargarPublicaciones() {
+    const datosPubli = datos["publicaciones"];
+    var content = "";
+    var content1 = ""; 
+
+    for (let index = 0; index < datosPubli["anos"].length; index++) {
+        content += '<li class="nav-item"><a class="trans nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabPubli-'+index+'">'+datosPubli["anos"][index]+'</a>'+
+        // '<a class="trans d-none nav-link '+(index == 0 ? "active" : "")+'" data-toggle="tab" href="#tabPubli-'+index+'">'+datosPubli["anos"][index]+'</a>'+
+        '</li>';
+        content1 += '<div class="tab-pane '+(index == 0 ? "active" : "")+' show" id="tabPubli-'+index+'" style="width: 99%;">'+
+                        '<div class="container">'
+                            
+
+        for (let ind = 0; ind < datosPubli[datosPubli["anos"][index]].length; ind++) {
+            const element = datosPubli[datosPubli["anos"][index]][ind];
+            content1 += '<div class="row publicacion mx-auto d-flex align-content-center">'+
+                            '<div class="revista col-md-2 col-lg-2 d-flex justify-content-center align-items-center">'+
+                                '<div class="img-revista d-flex align-items-center">'+
+                                    '<img class="img-fluid d-none d-md-block" src="'+element["img"]+'" width="140" height="auto" alt="">'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="bibliografia col-lg-7 col-md-7 col-sm-12 col-12  d-flex flex-column justify-content-center">'+
+                                '<p>'+element["text"]+'</p>'+
+                            '</div>'+
+                            '<div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-column justify-content-center align-content-start">'+
+                                '<ul class="botones d-flex flex-row flex-md-column justify-content-around">';
+                                if (element["link"] != "") {
+                                    content1 += '<li class="pdf"><a class=" btn btn-publi" href="'+element["link"]+'" target="_blank">'+element["name_link"]+'</a></li>'
+                                }
+                                if (element["pdf"] != "") {
+                                    content1 += '<li class="pdf"><a class="btn btn-publi" href="'+element["pdf"]+'" target="_blank"><i class="fa-solid fa-file-arrow-down mr-4"></i>PDF</a></li>'
+                                }
+            content1 +=         '</ul>'+
+                            '</div>'+
+                        '</div>'
+        }
+
+        content1 += '</div></div>';
+    }
+
+    $("#menu-publicaciones").append(content);
+    $("#content-publicaciones").append(content1);
 }
 
 

@@ -1,3 +1,17 @@
+.btn-visor{
+  text-decoration: none !important;
+  background: #247461; 
+  font-size: 17px !important;
+  font-weight: bold;
+}
+.btn-visor:hover{
+  text-decoration: none !important;
+  background: #fff; 
+  border: 2px solid #247461; 
+  color: #247461; 
+}
+
+
 /* --------------------------SLIDER------------------------------ */
 
 .enviar-resumen{
@@ -52,21 +66,20 @@ div.slider-imgs{
 /* Personalizar el slider */
 
 ol.carousel-indicators{
-  top: -25px;
-  left: 30%;
+  bottom: -20px;
   position: absolute;
 }
 
 @media screen and (max-width:767px){
   ol.carousel-indicators{
       left: 0%;
-      bottom: -67%;
+      bottom: -5%;
   }
 }
 @media screen and (max-width:575px){
   ol.carousel-indicators{
       left: 0%;
-      bottom: -130%;
+      bottom: -5%;
   }
 }
 
@@ -113,7 +126,7 @@ div.carousel-caption{
 
 }
 
-@media screen and (max-width:1074px){
+@media screen and (max-width:1200px){
 
 
   div.carousel-caption{
@@ -122,7 +135,7 @@ div.carousel-caption{
       top: 105%;
       left: 0%;
       width: 100%;
-      height: 130px;
+      height: 230px;
       background: linear-gradient(to bottom, black,#363F43 50%, darkgray);
       text-align: start;
       padding-top: 5px;
@@ -157,8 +170,8 @@ div.carousel-caption{
 
 @media screen and (max-width:575px){
   div.carousel-caption{
-      height: 170px;
-      overflow-y: auto;
+    height: 230px;
+    overflow-y: auto;
   }
 
 }
@@ -315,10 +328,49 @@ div.modal-header>button{
   align-items: flex-start;
 }
 
+#aboutus_content p{
+  font-size: 20px;
+}
+
 .foto_profe{
-  width: auto;
-  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  height: 55vh;
   max-width: none;
+}
+@media screen and (max-width:1250px){
+
+  .container .wrap {
+    padding-top: 20vh;
+  }
+
+}
+@media screen and (max-width:1047px){
+
+  .container .wrap {
+    padding-top: 30vh;
+  }
+
+}
+@media screen and (max-width:992px){
+  .img-slider {
+    width: auto;
+    height: auto;
+}
+}
+
+@media screen and (max-width:768px){
+  .foto_profe{
+    height: auto;
+  }
+}
+
+@media screen and (max-width:700px){
+
+  .container .wrap {
+    padding-top: 20vh;
+  }
+
 }
 
 .datos_profe{
@@ -340,4 +392,154 @@ div.modal-header>button{
 }
 .title_profe b{
   font-size: 20px;
+}
+
+.icon-redes{
+  text-decoration: none;
+}
+.icon-redes:hover{
+  color: #247461;
+  text-decoration: none;
+}
+
+
+.tab-pane.active {
+  animation: slide-down 0.5s ease-out;
+}
+
+@keyframes slide-down {
+  0% { opacity: 0; transform: translateY(10%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+#main-lineas {
+  margin-right: 0px;
+}
+
+#barra-lateral ul.lineas-investigacion{
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00000070;
+  border-radius: 31px;
+}
+
+ul.lineas-investigacion li{
+  list-style: none;
+  width: 100%;
+  height: 50px;    
+}
+
+ul.lineas-investigacion>li>a{
+  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+ul.lineas-investigacion .active{
+  color: #247461;
+}
+
+ul.lineas-investigacion>li>a:hover{
+  
+  color: #247461;
+}
+
+#mostrar-contenido{
+  width: 100%;
+  height: 70vh;
+  background-color: white;
+  border-radius: 31px;
+  overflow: hidden;
+  font-family:'Rubik', sans-serif;
+  background-color: #ACC9B770;
+  position: relative;
+}
+div.tab-content{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+}
+div.tab-pane{
+  height: 100%;
+  overflow-y: auto;
+}
+
+h6.titulo-campo-der {
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.descripcion-linea p{
+  font-size: 16px;
+}
+
+.row-lineas{
+  width: 100%;
+  height: 100%;
+}
+
+
+#main-proyectos {
+  margin-left: 0px;
+}
+#main-publicaciones {
+  margin-right: 0px;
+}
+
+div.publicacion{
+  min-height: 180px;
+  width: 100%;
+  margin-top: 30px;
+  background: linear-gradient(to bottom, transparent,#00000020 50%, #00000040);
+  box-shadow: #00000020 0px -20px 20px 0px;
+  border-radius: 36px;
+}
+
+div.bibliografia{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+div.bibliografia p{
+  font-size: 17px;
+}
+
+div.img-revista{
+  width: auto;
+  height: auto;
+}
+
+
+div.bibliografia>p{
+  margin: auto;
+}
+
+li.link-revista, li.pdf{
+  list-style: none;
+  text-align: center;
+}
+
+.btn-publi {
+  color: #fff;
+  background: #247461;
+  border-color: #247461;
+  font-size: 20px;
+  margin: 10px 0;
+}
+.btn-publi:hover {
+  color: #247461;
+  background: #ffffff70;
+  border-color: #fff;
 }

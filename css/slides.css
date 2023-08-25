@@ -1372,7 +1372,7 @@ p.uppercase, .p.uppercase,
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  padding-top: 33vh;
+  padding-top: 27vh;
   height: 100%;
 }
 
@@ -1463,8 +1463,7 @@ p.uppercase, .p.uppercase,
 
 [class*='fix-'] {
   width: 100% !important;
-  /* margin-left: auto !important;
-  margin-right: auto !important; */
+  height: 100%;
   float: none;
   max-width: none !important;
 }
@@ -2650,7 +2649,8 @@ html.mobile .showForMobileInline {
 .sidebar .logo {
   padding: 0;
   font-size: 0;
-  margin-bottom: 35px;
+  margin-bottom: -20px;
+  width: 100px;
 }
 .sidebar .close {
   position: absolute;
@@ -5912,6 +5912,9 @@ body {
 .grid {
   margin-left: -2%;
   margin-right: -2%;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
   /* default spaces */
 }
 .grid [class*='col-'] {
